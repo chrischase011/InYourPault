@@ -177,7 +177,7 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 class CustomSidebarViewProvider implements vscode.WebviewViewProvider {
-  public static readonly viewType = "in-your-face.openview";
+  public static readonly viewType = "in-your-pault.openview";
 
   private _view?: vscode.WebviewView;
 
@@ -203,7 +203,7 @@ class CustomSidebarViewProvider implements vscode.WebviewViewProvider {
     setInterval(() => {
       const errors = getNumErrors();
       let i = "0";
-      if (errors) i = errors < 5 ? "1" : errors < 10 ? "2" : "3";
+      if (errors) {i = errors < 5 ? "1" : errors < 10 ? "2" : "3"};
       webviewView.webview.html = this.getHtmlContent(webviewView.webview, i);
     }, 1000);
   }
